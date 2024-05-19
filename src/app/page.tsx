@@ -1,7 +1,3 @@
-// import Image from "next/image";
-
 export default function Home() {
-  return (
-    <div>Mini Zustand</div>
-  );
+  return <div>Mini Zustand</div>;
 }
