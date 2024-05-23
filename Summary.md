@@ -1,3 +1,7 @@
+- https://www.nextjs.cn/docs/routing/introduction#dynamic-route-segments
+
+----
+
 ### How to create other pages?
 
 - [index routes](https://www.nextjs.cn/docs/routing/introduction#index-routes)
@@ -20,3 +24,4 @@ pages/blog/[slug].js → /blog/:slug (/blog/hello-world)
 pages/[username]/settings.js → /:username/settings (/foo/settings)
 pages/post/[...all].js → /post/* (/post/2020/id/title)
 ```
+
