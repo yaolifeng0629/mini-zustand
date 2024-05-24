@@ -6,13 +6,7 @@
         "dev": "next dev -p 3001",
         "build": "cross-env ANALYZE=true next build",
         "start": "next start -p 3001",
-        "lint": "eslint src --fix --ext .ts,.tsx,.js,.jsx --max-warnings 0",
-        "lint-staged": {
-            "src/**/*.{js,jsx,ts,tsx,json}": [
-                "npm run lint",
-                "prettier --write"
-            ]
-        }
+        "lint": "eslint src --fix"
     },
     "dependencies": {
         "immer": "^10.1.1",
