@@ -1,6 +1,5 @@
 {
-    "*.{js,jsx,ts,tsx,mjs,cjs,mts,cts,mtsx,ctsx}": ["npm run lint", "prettier --write"],
-    "*.{vue,html}": ["npm run lint", "prettier --write"],
-    "*.{json,md,mdx,yaml}": ["npm run lint", "prettier --write"],
-    "*.{css,less,sass,scss}": ["npm run lint", "prettier --write"]
+    "*.{js,jsx,ts,tsx,mjs,cjs,mts,cts,mtsx,ctsx}": ["prettier --write"],
+    "*.{json,md,mdx,yaml}": ["prettier --write"],
+    "*.{css,less,sass,scss}": ["prettier --write"]
 }
