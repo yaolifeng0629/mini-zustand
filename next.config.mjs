@@ -17,6 +17,15 @@ const nextConfig = {
             }
         ]
     },
+    async rewrites() {
+        return [
+            {
+                source: '/api/:path*',
+                destination: `http://localhost:8000/api/:path*`,
+                basePath: false
+            }
+        ];
+    },
     reactStrictMode: false // 严格模式主要用于识别不安全的生命周期、过时的API等情况。但在开发模式下，会让组件执行两次，意味着会多次调用接口，因此需关闭该模式
 };
 

@@ -6,7 +6,7 @@
     --btn-bg-color: hsla(360 100% 100% / 1);
     --radii: 0.5em;
     cursor: pointer;
-    padding: 0.9em 1.4em;
+    padding: 0.4em 1.4em;
     min-width: 120px;
     min-height: 44px;
     font-size: var(--size, 1rem);
