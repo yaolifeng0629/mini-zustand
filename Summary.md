@@ -139,3 +139,11 @@ const RootLayout = ({ children }: React.PropsWithChildren) => (
 
 export default RootLayout;
 ```
+
+### How to make new router folder in the `app` folder?
+
+-   https://nextjs.org/docs/app/building-your-application/routing/colocation
+
+### Routing
+
+#### Linking and Navigating

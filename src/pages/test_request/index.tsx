@@ -10,9 +10,9 @@ export default (() => {
     const [result, setResult] = useState(null);
     function handleGetData() {
         IndexAPI.TestApi()
-            .then((res) => {
+            .then((res: Object) => {
                 console.log(res);
-                // setResult(res.data);
+                setResult(res.data);
             })
             .catch((err) => {
                 console.log(err);
