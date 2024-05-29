@@ -1,4 +1,4 @@
-### React
+### Next
 
 -   https://www.nextjs.cn/docs/routing/introduction#dynamic-route-segments
 
