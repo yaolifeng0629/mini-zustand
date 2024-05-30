@@ -1,21 +1,31 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import usexxxStore from './page.store';
 
 export default function Home() {
-    const router = useRouter();
-    function toDemo() {
-        router.push('/zustand_use_demo');
-    }
+    const { updateAaa, aaa } = usexxxStore();
+
+    usexxxStore.subscribe((state) => {
+        console.log('state', usexxxStore.getState());
+    });
     return (
         <div>
             <h1>Mini Zustand</h1>
-            <button
-                className="group inline-block rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
-                onClick={toDemo}
-            >
-                跳转zustand示例
-            </button>
+            <input
+                onChange={(e) => updateAaa(e.currentTarget.value)}
+                value={aaa}
+                className="border border-gray-200"
+            />
+            <Bbb />
         </div>
     );
+}
+
+function Bbb() {
+    return <Ccc></Ccc>;
+}
+
+function Ccc() {
+    const { aaa } = usexxxStore();
+    return <p>hello, {aaa}</p>;
 }
