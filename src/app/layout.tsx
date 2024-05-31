@@ -1,27 +1,22 @@
-import { Inter } from 'next/font/google';
-
-import StyledComponentsRegistry from '@/lib/registry';
-
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Mini Zustand',
-    description: '🐻 Bear necessities for state management in React'
+    description: '🐻 Bear necessities for state management in React',
 };
 
 export default function RootLayout({
-    children
+    children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-            </body>
+            <body className={inter.className}>{children}</body>
         </html>
     );
 }

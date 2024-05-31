@@ -19,49 +19,6 @@
         ],
         "no-debugger": "warn",
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "import/order": [
-            "error",
-            {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "parent",
-                    "sibling",
-                    "index",
-                    "internal",
-                    "object",
-                    "type"
-                ],
-                "pathGroups": [
-                    {
-                        "pattern": "react*",
-                        "group": "builtin",
-                        "position": "before"
-                    },
-                    {
-                        "pattern": "@/components/**",
-                        "group": "parent",
-                        "position": "before"
-                    },
-                    {
-                        "pattern": "@/utils/**",
-                        "group": "parent",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "@/apis/**",
-                        "group": "parent",
-                        "position": "after"
-                    }
-                ],
-                "pathGroupsExcludedImportTypes": ["react"],
-                "newlines-between": "always",
-                "alphabetize": {
-                    "order": "asc",
-                    "caseInsensitive": true
-                }
-            }
-        ]
+        "@typescript-eslint/no-unused-vars": "off"
     }
 }

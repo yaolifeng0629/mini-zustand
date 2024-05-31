@@ -1,9 +1,6 @@
 import { useSyncExternalStore } from 'react';
 
-type StateUpdater<T> = (
-    partial: T | Partial<T> | ((state: T) => T | Partial<T>),
-    replace?: boolean
-) => void;
+type StateUpdater<T> = (partial: T | Partial<T> | ((state: T) => T | Partial<T>), replace?: boolean) => void;
 type StateGetter<T> = () => T;
 type StateListener<T> = (state: T, previousState: T) => void;
 type StateSubscriber<T> = (listener: StateListener<T>) => () => void;
@@ -21,10 +18,7 @@ const createStore = <T>(createState: CreateState<T>): StoreApi<T> => {
     const listeners = new Set<StateListener<T>>();
 
     const setState: StateUpdater<T> = (partial, replace) => {
-        const nextState =
-            typeof partial === 'function'
-                ? (partial as (state: T) => T | Partial<T>)(state)
-                : partial;
+        const nextState = typeof partial === 'function' ? (partial as (state: T) => T | Partial<T>)(state) : partial;
 
         if (!Object.is(nextState, state)) {
             const previousState = state;
@@ -37,13 +31,13 @@ const createStore = <T>(createState: CreateState<T>): StoreApi<T> => {
             } else {
                 state = nextState as T;
             }
-            listeners.forEach((listener) => listener(state, previousState));
+            listeners.forEach(listener => listener(state, previousState));
         }
     };
 
     const getState: StateGetter<T> = () => state;
 
-    const subscribe: StateSubscriber<T> = (listener) => {
+    const subscribe: StateSubscriber<T> = listener => {
         listeners.add(listener);
         return () => {
             listeners.delete(listener);
@@ -76,8 +70,7 @@ function useStore<T, U>(api: StoreApi<T>, selector: (state: T) => U): U {
 export const create = <T>(createState: CreateState<T>) => {
     const api = createStore(createState);
 
-    const useBoundStore = <U>(selector: (state: T) => U = (state) => state as unknown as U) =>
-        useStore(api, selector);
+    const useBoundStore = <U>(selector: (state: T) => U = state => state as unknown as U) => useStore(api, selector);
 
     Object.assign(useBoundStore, api);
 

@@ -1,19 +1,20 @@
 // import { create } from 'zustand';
+
 import { persist } from 'zustand/middleware';
 
 import { create } from './my-zustand';
 
-type XxxState = {
+type CustomState = {
     aaa: string;
     bbb: string;
 };
 
-type XxxActions = {
+type CustomActions = {
     updateAaa: (value: string) => void;
     updateBbb: (value: string) => void;
 };
 
-type XxxStore = XxxState & XxxActions;
+type CustomStore = CustomState & CustomActions;
 
 type SetFunction = (...args: any[]) => void;
 type GetFunction = () => void;
@@ -21,7 +22,7 @@ type GetFunction = () => void;
 function logMiddleware(func: any) {
     return function (set: SetFunction, get: GetFunction, store: any) {
         function newSet(...args: any[]) {
-            console.log('调用了 set ---->', get());
+            console.log('Be called set ---->', get());
             return set(...args);
         }
 
@@ -29,7 +30,7 @@ function logMiddleware(func: any) {
     };
 }
 
-const usexxxStore = create<XxxStore>(
+const useCustomStore = create<CustomStore>(
     logMiddleware(
         persist(
             (set: any) => ({
@@ -37,18 +38,18 @@ const usexxxStore = create<XxxStore>(
                 bbb: '',
                 updateAaa: (value: string) =>
                     set(() => ({
-                        aaa: value
+                        aaa: value,
                     })),
                 updateBbb: (value: string) =>
                     set(() => ({
-                        bbb: value
-                    }))
+                        bbb: value,
+                    })),
             }),
             {
-                name: 'test_persist'
+                name: 'test_persist',
             }
         )
     )
 );
 
-export default usexxxStore;
+export default useCustomStore;
